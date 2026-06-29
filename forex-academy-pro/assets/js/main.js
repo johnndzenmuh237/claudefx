@@ -492,3 +492,142 @@ document.addEventListener('DOMContentLoaded', () => {
   Newsletter.init();
   CookieBanner.init();
 });
+/**
+ * mobile-nav-fix.js
+ * Drop this into main.js (or include it as a separate <script> before </body>).
+ * Handles: hamburger toggle, overlay, close button, ESC key,
+ *          outside-click, active link highlight, scroll-lock.
+ */
+(function () {
+  "use strict";
+
+  /* ── Wait for DOM ──────────────────────────────────────── */
+  document.addEventListener("DOMContentLoaded", initMobileNav);
+
+  function initMobileNav() {
+    const hamburger   = document.querySelector(".hamburger");
+    const mobileNav   = document.querySelector(".mobile-nav");
+    const mobileInner = document.querySelector(".mobile-nav-inner");
+
+    if (!hamburger || !mobileNav) return;
+
+    /* ── Inject overlay (once) ────────────────────────────── */
+    let overlay = document.querySelector(".mobile-nav-overlay");
+    if (!overlay) {
+      overlay = document.createElement("div");
+      overlay.className = "mobile-nav-overlay";
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.appendChild(overlay);
+    }
+
+    /* ── Inject close button inside drawer (once) ─────────── */
+    if (!mobileNav.querySelector(".mobile-nav-close")) {
+      const closeBtn = document.createElement("button");
+      closeBtn.className = "mobile-nav-close";
+      closeBtn.setAttribute("aria-label", "Close menu");
+      closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+      mobileNav.insertBefore(closeBtn, mobileNav.firstChild);
+      closeBtn.addEventListener("click", closeNav);
+    }
+
+    /* ── Inject section labels (optional, cosmetic) ─────────
+       Uncomment if you want "Education" / "Services" headers   */
+    // injectSectionLabels(mobileInner);
+
+    /* ── Core open / close ────────────────────────────────── */
+    function openNav() {
+      mobileNav.classList.add("open");
+      mobileNav.setAttribute("aria-hidden", "false");
+      overlay.classList.add("active");
+      hamburger.classList.add("active");
+      hamburger.setAttribute("aria-expanded", "true");
+      document.body.classList.add("nav-open");
+      // Move focus into drawer for accessibility
+      const firstLink = mobileNav.querySelector("a, button");
+      if (firstLink) firstLink.focus();
+    }
+
+    function closeNav() {
+      mobileNav.classList.remove("open");
+      mobileNav.setAttribute("aria-hidden", "true");
+      overlay.classList.remove("active");
+      hamburger.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("nav-open");
+      hamburger.focus();
+    }
+
+    function toggleNav() {
+      mobileNav.classList.contains("open") ? closeNav() : openNav();
+    }
+
+    /* ── Event listeners ──────────────────────────────────── */
+    hamburger.addEventListener("click", toggleNav);
+    overlay.addEventListener("click", closeNav);
+
+    // Close on ESC
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && mobileNav.classList.contains("open")) {
+        closeNav();
+      }
+    });
+
+    // Close when a nav link is tapped (SPA-style navigation)
+    mobileNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // Small delay so href has time to fire before closing
+        setTimeout(closeNav, 150);
+      });
+    });
+
+    /* ── Active link highlight ────────────────────────────── */
+    highlightActiveLink();
+
+    /* ── Resize guard: close drawer if window widens ──────── */
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1024 && mobileNav.classList.contains("open")) {
+        closeNav();
+      }
+    });
+  }
+
+  /* ── Helpers ──────────────────────────────────────────── */
+
+  function highlightActiveLink() {
+    const current = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".mobile-nav-inner a").forEach(function (link) {
+      const href = (link.getAttribute("href") || "").split("/").pop();
+      if (href === current) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  /**
+   * Optional: inject section-label dividers above Education and Services links.
+   * Call injectSectionLabels(mobileInner) above if you want it.
+   */
+  function injectSectionLabels(inner) {
+    if (!inner) return;
+    const links = Array.from(inner.querySelectorAll("a"));
+
+    const educationHrefs  = ["courses.html", "forex-trading.html", "synthetic-indices.html"];
+    const servicesHrefs   = ["signals.html", "mentorship.html", "account-management.html", "funded-accounts.html"];
+
+    function insertLabel(beforeLink, text) {
+      if (!beforeLink) return;
+      const label = document.createElement("div");
+      label.className = "mobile-nav-section-label";
+      label.textContent = text;
+      inner.insertBefore(label, beforeLink);
+    }
+
+    const firstEdu = links.find(l => educationHrefs.some(h => l.href.endsWith(h)));
+    const firstSvc = links.find(l => servicesHrefs.some(h => l.href.endsWith(h)));
+
+    if (firstEdu) insertLabel(firstEdu, "Education");
+    if (firstSvc) insertLabel(firstSvc, "Services");
+  }
+})();
