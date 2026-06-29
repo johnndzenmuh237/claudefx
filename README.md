@@ -1,0 +1,2 @@
+# claudefx
+global trade
