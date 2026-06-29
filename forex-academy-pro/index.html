@@ -93,24 +93,47 @@
   </div>
 </nav>
 
-<!-- Mobile Nav -->
-<div class="mobile-nav" aria-hidden="true">
+<!--
+  ════════════════════════════════════════════════════════════
+  UPDATED MOBILE NAV MARKUP — replace your existing block
+  (the <!-- Mobile Nav --> comment section in index.html)
+  ════════════════════════════════════════════════════════════
+-->
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+  <!-- Close button is injected by JS, but you can hard-code it too: -->
+  <button class="mobile-nav-close" aria-label="Close menu">
+    <i class="fas fa-times"></i>
+  </button>
+
   <div class="mobile-nav-inner">
-    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-    <a href="courses.html"><i class="fas fa-graduation-cap"></i> Courses</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+
+    <div class="mobile-nav-section-label">Education</div>
+    <a href="courses.html"><i class="fas fa-graduation-cap"></i> All Courses</a>
     <a href="forex-trading.html"><i class="fas fa-chart-line"></i> Forex Trading</a>
     <a href="synthetic-indices.html"><i class="fas fa-wave-square"></i> Synthetic Indices</a>
+
+    <div class="mobile-nav-section-label">Services</div>
     <a href="signals.html"><i class="fas fa-signal"></i> Live Signals</a>
     <a href="mentorship.html"><i class="fas fa-user-tie"></i> Mentorship</a>
     <a href="account-management.html"><i class="fas fa-briefcase"></i> Account Management</a>
     <a href="funded-accounts.html"><i class="fas fa-money-bill-wave"></i> Funded Accounts</a>
+
+    <div class="mobile-nav-section-label">More</div>
     <a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a>
     <a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+
     <div class="mobile-nav-actions">
-      <a href="student-portal/dashboard.html" class="btn btn-outline"><i class="fas fa-user"></i> Student Portal</a>
-      <a href="pricing.html" class="btn btn-primary"><i class="fas fa-rocket"></i> Get Started Free</a>
+      <a href="student-portal/dashboard.html" class="btn btn-outline">
+        <i class="fas fa-user"></i> Student Portal
+      </a>
+      <a href="pricing.html" class="btn btn-primary">
+        <i class="fas fa-rocket"></i> Get Started Free
+      </a>
     </div>
   </div>
 </div>
