@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40">
+  <rect width="120" height="40" rx="4" fill="#1F242E"/>
+  <text x="50%" y="58%" font-family="Arial,sans-serif" font-size="12" font-weight="700"
+        fill="#9CA3B0" text-anchor="middle">MYFX</text>
+</svg>

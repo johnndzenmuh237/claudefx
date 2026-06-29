@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all trading courses — Forex, Synthetic Indices, Technical Analysis, Risk Management, and more.">
+  <title>Courses | Forex Academy Pro</title>
+  <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/vendors/aos/aos.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/darkmode.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<div class="page-loader"><div class="loader-ring"></div></div>
+
+<!-- NAVBAR (same as index.html) -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/logo/logo-icon.png" alt="FAP Logo" class="brand-logo">
+        <span class="brand-name">Forex<span>Academy</span></span>
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="courses.html" class="nav-link active">Courses</a></li>
+        <li class="nav-item">
+          <a href="signals.html" class="nav-link">Services <i class="fas fa-chevron-down" style="font-size:10px;"></i></a>
+          <div class="nav-dropdown">
+            <a href="signals.html"><i class="fas fa-signal"></i> Live Signals</a>
+            <a href="mentorship.html"><i class="fas fa-user-tie"></i> Mentorship</a>
+            <a href="account-management.html"><i class="fas fa-briefcase"></i> Account Management</a>
+            <a href="funded-accounts.html"><i class="fas fa-money-bill-wave"></i> Funded Accounts</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <button class="btn btn-icon" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <a href="student-portal/dashboard.html" class="btn btn-outline btn-sm"><i class="fas fa-user"></i> Portal</a>
+        <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html" class="active"><i class="fas fa-graduation-cap"></i> Courses</a>
+    <a href="signals.html"><i class="fas fa-signal"></i> Live Signals</a>
+    <a href="mentorship.html"><i class="fas fa-user-tie"></i> Mentorship</a>
+    <a href="account-management.html"><i class="fas fa-briefcase"></i> Account Management</a>
+    <a href="funded-accounts.html"><i class="fas fa-money-bill-wave"></i> Funded Accounts</a>
+    <a href="pricing.html"><i class="fas fa-tags"></i> Pricing</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <div class="mobile-nav-actions">
+      <a href="student-portal/dashboard.html" class="btn btn-outline"><i class="fas fa-user"></i> Student Portal</a>
+      <a href="pricing.html" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Courses</span>
+      </div>
+      <span class="section-label" style="justify-content:center;">52+ Courses Available</span>
+      <h1 class="display-2" data-aos="fade-up">Find Your<br><span class="gradient-text">Perfect Course</span></h1>
+      <p style="font-size:1.125rem; color:var(--color-text-secondary); max-width:560px; margin:1rem auto 0;" data-aos="fade-up" data-aos-delay="100">
+        From beginner fundamentals to advanced prop-firm strategies. Learn at your own pace with lifetime access.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE BROWSER -->
+<section class="section">
+  <div class="container">
+    <!-- Filters -->
+    <div data-aos="fade-up" style="background:var(--color-dark-2); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius-xl); padding:1.5rem; margin-bottom:2rem;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <!-- Search -->
+        <div style="position:relative; flex:1; min-width:200px;">
+          <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--color-text-muted);font-size:14px;"></i>
+          <input type="text" class="form-control" placeholder="Search courses..." data-course-search style="padding-left:2.5rem;">
+        </div>
+
+        <!-- Category filters -->
+        <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+          <button class="btn btn-sm btn-primary" data-course-filter="category:all">All</button>
+          <button class="btn btn-sm btn-ghost" data-course-filter="category:forex">Forex</button>
+          <button class="btn btn-sm btn-ghost" data-course-filter="category:synthetic">Synthetic</button>
+          <button class="btn btn-sm btn-ghost" data-course-filter="category:technical">Technical</button>
+          <button class="btn btn-sm btn-ghost" data-course-filter="category:psychology">Psychology</button>
+          <button class="btn btn-sm btn-ghost" data-course-filter="category:propfirm">Prop Firm</button>
+        </div>
+
+        <!-- Sort -->
+        <div style="display:flex; align-items:center; gap:.75rem; flex-shrink:0;">
+          <span style="font-size:.875rem; color:var(--color-text-muted); white-space:nowrap;">Sort:</span>
+          <select class="form-control" data-course-sort style="width:auto; padding:.5rem .75rem;">
+            <option value="popular">Most Popular</option>
+            <option value="rating">Top Rated</option>
+            <option value="newest">Newest</option>
+            <option value="price-lo">Price: Low → High</option>
+            <option value="price-hi">Price: High → Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Level filters -->
+      <div style="display:flex; gap:.5rem; margin-top:1rem; flex-wrap:wrap;">
+        <span style="font-size:.875rem; color:var(--color-text-muted); align-self:center; margin-right:.25rem;">Level:</span>
+        <button class="btn btn-sm btn-primary" data-course-filter="level:all">All Levels</button>
+        <button class="btn btn-sm btn-ghost" data-course-filter="level:beginner">Beginner</button>
+        <button class="btn btn-sm btn-ghost" data-course-filter="level:intermediate">Intermediate</button>
+        <button class="btn btn-sm btn-ghost" data-course-filter="level:advanced">Advanced</button>
+        <span style="margin-left:auto; font-size:.875rem; color:var(--color-text-muted); align-self:center;" data-courses-count>9 courses</span>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid-3" data-courses-grid data-aos="fade-up">
+      <!-- Populated by courses.js -->
+      <div style="grid-column:1/-1; text-align:center; padding:4rem; color:var(--color-text-muted);">
+        <div class="loader-ring" style="margin:0 auto;"></div>
+        <p style="margin-top:1rem;">Loading courses...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="container" style="text-align:center; position:relative; z-index:1;">
+    <span class="section-label" style="justify-content:center;">Exclusive Offer</span>
+    <h2 class="section-title" style="max-width:600px; margin:0 auto 1rem;">
+      Get All Courses<br><span class="gradient-text">For One Low Price</span>
+    </h2>
+    <p style="color:var(--color-text-secondary); margin-bottom:2rem; max-width:500px; margin-inline:auto;">
+      The All-Access Bundle gives you every current and future course, signals, and community for a single payment.
+    </p>
+    <a href="pricing.html" class="btn btn-primary btn-xl">
+      <i class="fas fa-infinity"></i> View Bundle Pricing
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">Forex<span>Academy</span> Pro</div>
+        <p class="footer-desc">The premier trading education platform for Forex, Synthetic Indices, and funded account traders.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Education</div>
+        <ul class="footer-links">
+          <li><a href="courses.html"><i class="fas fa-chevron-right"></i> All Courses</a></li>
+          <li><a href="forex-trading.html"><i class="fas fa-chevron-right"></i> Forex Trading</a></li>
+          <li><a href="synthetic-indices.html"><i class="fas fa-chevron-right"></i> Synthetic Indices</a></li>
+          <li><a href="mentorship.html"><i class="fas fa-chevron-right"></i> Mentorship</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="signals.html"><i class="fas fa-chevron-right"></i> Live Signals</a></li>
+          <li><a href="account-management.html"><i class="fas fa-chevron-right"></i> Account Management</a></li>
+          <li><a href="funded-accounts.html"><i class="fas fa-chevron-right"></i> Funded Accounts</a></li>
+          <li><a href="pricing.html"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Newsletter</div>
+        <p style="font-size:.875rem; color:var(--color-text-secondary); margin-bottom:1rem;">Weekly market analysis & tips.</p>
+        <form class="newsletter-form">
+          <input type="email" class="form-control" placeholder="Your email" required>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Forex Academy Pro. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <strong>Risk Warning:</strong> Trading involves significant risk. Past performance is not indicative of future results. For educational purposes only.
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="assets/vendors/aos/aos.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/courses.js"></script>
+</body>
+</html>
